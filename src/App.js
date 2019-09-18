@@ -11,19 +11,19 @@ import Cart from './components/Cart';
 const browserHistory = createBrowserHistory();
 
 const App = () => (
-    <main>
-        <Provider store={store}>
-            <Router history={browserHistory}>
-            <div className={styles.app}>
-                <Header/>
-                <div className={styles.body}>
-                    <Route exact path="/" component={List} />
-                    <Route exact path="/cart" component={Cart} />
-                </div>
-            </div>
-            </Router>
-        </Provider>
-    </main>
+  <main>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <div className={styles.app}>
+          <Header />
+          <div className={styles.body}>
+            <Route exact path="/" component={List} />
+            <Route exact path="/cart" component={Cart} />
+          </div>
+        </div>
+      </Router>
+    </Provider>
+  </main>
 );
 
 export default App;

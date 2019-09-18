@@ -3,8 +3,8 @@ import colorOptions from './colorOptions';
 import cartColors from './cartColors';
 
 const rootReducer = combineReducers({
-    colorOptions,
-    cartColors,
+  colorOptions,
+  cartColors,
 });
 
 export default rootReducer;
