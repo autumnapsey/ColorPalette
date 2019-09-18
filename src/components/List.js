@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle, withHandlers } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 import styles from './List.css';
 import fetchColors from '../actions/fetchColors';
 import ColorSquare from './ColorSquare';
@@ -27,7 +27,7 @@ const enhance = compose(
   }),
 );
 
-const List = ({ colorOptions }) => (
+const List = ({ colorOptions }: { colorOptions: Array }) => (
   <div className={styles.list}>
     {colorOptions.map(option => (
       <ColorSquare color={option} key={option} />

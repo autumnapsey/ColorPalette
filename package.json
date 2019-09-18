@@ -10,7 +10,6 @@
     "dev": "webpack --mode development && node server.js",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
     "try": "concurrently \"yarn server\" && \"yarn dev\"",
-    "prepush": "?",
     "precommit": "lint-staged",
     "lint": "eslint --fix"
   },

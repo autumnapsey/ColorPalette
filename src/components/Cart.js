@@ -5,13 +5,12 @@ import { compose } from 'recompose';
 import styles from './Cart.css';
 import ColorSquare from './ColorSquare';
 
-// TODO: hide trash icon when no hover
-//  keep cart colors on refresh
+// TODO: keep cart colors on refresh
 //  STRETCH- add save & naming functionality for palettes
 
 const enhance = compose(connect(({ cartColors }) => ({ cartColors })));
 
-const Cart = ({ cartColors }) => (
+const Cart = ({ cartColors }: { cartColors: Array }) => (
   <div className={styles.cart}>
     Your current color palette
     <div className={styles.colors}>
