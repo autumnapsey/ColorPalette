@@ -3,7 +3,7 @@ const responseHandler = response =>
 
 const fetchColors = async () => {
   try {
-    const raw = await fetch('http://localhost:3000/api/colors');
+    const raw = await fetch('/api/colors');
     const formattedResponse = await responseHandler(raw).json();
     return formattedResponse.colors;
   } catch (err) {
