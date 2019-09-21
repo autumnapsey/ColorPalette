@@ -31,7 +31,7 @@ Our recommendation is to spend about 4 hours on this challenge. You're welcome t
 ## Core Goals
 
 - Replicate design
-  - [Font](./font.md)
+  - [Font](design/font.md)
   - Styles. The sketch file has an included swatches artboard which includes the colors you can use. Take note of the small details.
   - Iconography. The sketch file has the icons that should be used where necessary in the icons artboard. These can be exported and used as you see fit.
 - Replicate functionality

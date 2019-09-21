@@ -22,11 +22,12 @@ body, main {
     grid-template-rows: 60px 1fr;
     grid-template-areas:
             "header"
-            "body";
+            "main";
     background-color: #EFEFEF;
 }
 
-.body {
-    grid-area: body;
-    padding: 10px;
+.main {
+    grid-area: main;
+    margin: 10px;
+    overflow: scroll;
 }

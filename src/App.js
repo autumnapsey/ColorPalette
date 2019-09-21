@@ -1,12 +1,11 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import styles from './style.css';
 import store from './store';
 import Header from './components/Header';
-import List from './components/List';
-import Cart from './components/Cart';
+import Main from './components/Main';
 
 const browserHistory = createBrowserHistory();
 
@@ -16,10 +15,7 @@ const App = () => (
       <Router history={browserHistory}>
         <div className={styles.app}>
           <Header />
-          <div className={styles.body}>
-            <Route exact path="/" component={List} />
-            <Route exact path="/cart" component={Cart} />
-          </div>
+          <Main />
         </div>
       </Router>
     </Provider>

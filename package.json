@@ -9,7 +9,6 @@
     "server": "nodemon server.js",
     "dev": "webpack --mode development && node server.js",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
-    "try": "concurrently \"yarn server\" && \"yarn dev\"",
     "precommit": "lint-staged",
     "lint": "eslint --fix"
   },
@@ -23,7 +22,7 @@
     "react-router-dom": "^5.0.1",
     "react-svg": "^10.0.20",
     "recompose": "^0.26.0",
-    "redux": "^4.0.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

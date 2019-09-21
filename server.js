@@ -15,6 +15,19 @@ const colors = {
     '#BADA55',
     '#F5F5F5',
     '#AD328F',
+    '#F0F0F0',
+    '#E1BA42',
+    '#F05D05',
+    '#AA01F3',
+    '#DDD222',
+    '#FF0F77',
+    '#555555',
+    '#E0E0E0',
+    '#44AF99',
+    '#123456',
+    '#654321',
+    '#ABC123',
+    '#3B2A1F',
   ],
 };
 
@@ -26,5 +39,6 @@ app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`App listening on port: ${port}`);
 });
