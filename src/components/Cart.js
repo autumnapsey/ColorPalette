@@ -6,7 +6,6 @@ import styles from './Cart.css';
 import ColorSquare from './ColorSquare';
 
 // TODO: keep cart colors on refresh
-//  STRETCH- add save & naming functionality for palettes
 
 const enhance = compose(connect(({ cartColors }) => ({ cartColors })));
 

@@ -1,11 +1,11 @@
-const fetchColors = async num => {
+const updateColorOptions = async (cart = []) => {
   try {
-    const raw = await fetch('/api/colors', {
+    const raw = await fetch('/api/options', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ num }),
+      body: JSON.stringify({ cart }),
     });
     const response = await raw.json();
 
@@ -15,4 +15,4 @@ const fetchColors = async num => {
   }
 };
 
-export default fetchColors;
+export default updateColorOptions;

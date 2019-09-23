@@ -1,18 +1,25 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import {
+  compose,
+  lifecycle,
+  branch,
+  renderNothing,
+  withHandlers,
+} from 'recompose';
 import styles from './List.css';
 import fetchColors from '../actions/fetchColors';
 import ColorSquare from './ColorSquare';
-
-// TODO: generate large number of unique colors on the backend,
-//  fetch a number of colors instead of all,
-//  implement load more button or infinite scroll to fetch more colors
+import updateColorOptions from '../actions/updateColorOptions';
 
 const enhance = compose(
   connect(
-    ({ colorOptions }) => ({ colorOptions }),
+    ({ colorOptions, squaresTotal, cartColors }) => ({
+      colorOptions,
+      squaresTotal,
+      cartColors,
+    }),
     {
       populateColorOptions: colors => ({
         type: 'POPULATE_COLOR_OPTIONS',
@@ -20,18 +27,40 @@ const enhance = compose(
       }),
     },
   ),
+  branch(({ squaresTotal }) => squaresTotal === 0, renderNothing),
+  withHandlers({
+    loadMore: ({ squaresTotal, populateColorOptions }) => () => () => {
+      fetchColors(squaresTotal).then(res => populateColorOptions(res));
+    },
+  }),
   lifecycle({
     componentDidMount() {
-      fetchColors().then(res => this.props.populateColorOptions(res));
+      fetchColors(this.props.squaresTotal * 2).then(res =>
+        this.props.populateColorOptions(res),
+      );
+    },
+    componentWillUnmount() {
+      updateColorOptions();
     },
   }),
 );
 
-const List = ({ colorOptions }: { colorOptions: Array }) => (
+const List = ({
+  colorOptions,
+  loadMore,
+}: {
+  colorOptions: Array,
+  loadMore: Function,
+}) => (
   <div className={styles.list}>
     {colorOptions.map(option => (
       <ColorSquare color={option} key={option} />
     ))}
+    <div className={styles.load}>
+      <button onClick={loadMore()} className={styles.button}>
+        Load More
+      </button>
+    </div>
   </div>
 );
 

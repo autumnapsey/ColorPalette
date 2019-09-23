@@ -4,3 +4,24 @@
     justify-content: center;
     overflow: auto;
 }
+
+.load {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.button {
+    height: 40px;
+    width: 140px;
+    background-color: #1E4091;
+    color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list>div:last-child {
+    flex: 0 1 100%;
+}
