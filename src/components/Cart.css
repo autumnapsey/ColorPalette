@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url("../../design/OpenSans-Bold.ttf");
+}
+
+.title {
+    font-family: 'Open Sans Bold';
+    font-size: 20px;
+    padding: 10px;
+}
+
 .colors {
     display: flex;
     flex-wrap: wrap;

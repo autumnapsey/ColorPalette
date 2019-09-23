@@ -20,6 +20,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    font-size: 13px;
 }
 
 .list>div:last-child {

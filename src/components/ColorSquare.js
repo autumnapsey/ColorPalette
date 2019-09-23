@@ -5,6 +5,7 @@ import { compose, withHandlers, withProps } from 'recompose';
 import ReactSVG from 'react-svg';
 import styles from './ColorSquare.css';
 import TrashIcon from '../../design/TrashIcon.svg';
+import saveCart from '../actions/saveCart';
 
 const enhance = compose(
   connect(
@@ -32,8 +33,16 @@ const enhance = compose(
     inCart: color => cartColors.includes(color),
   })),
   withHandlers({
-    updateColor: ({ addColor, removeColor, inCart }) => color => () =>
-      inCart(color) ? removeColor(color) : addColor(color),
+    updateColor: ({
+      addColor,
+      removeColor,
+      inCart,
+      cartColors,
+    }) => color => () => {
+      // eslint-disable-next-line no-unused-expressions
+      inCart(color) ? removeColor(color) : addColor(color);
+      saveCart(cartColors);
+    },
     toggleHovering: ({
       hoverColor,
       setHoverColor,
